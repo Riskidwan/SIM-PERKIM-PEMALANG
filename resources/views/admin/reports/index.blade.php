@@ -24,6 +24,7 @@
             </tr>
         </thead>
         <tbody>
+            @php /** @var \Illuminate\Database\Eloquent\Collection $reports */ @endphp
             @forelse ($reports as $index => $report)
                 <tr>
                     <td style="font-weight:600;">{{ $index + 1 }}</td>

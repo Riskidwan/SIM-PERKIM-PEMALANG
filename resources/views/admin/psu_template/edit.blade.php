@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 @section('title', 'Edit Template')
 
+@php /** @var \App\Models\PsuTemplate $template */ @endphp
+
 @section('content')
 <div class="road-header" style="margin-bottom: 20px;">
     <h2 style="font-size: 1.5rem; margin: 0; color: #333;">Edit Template Data Teknis</h2>

@@ -45,6 +45,7 @@
             </tr>
         </thead>
         <tbody>
+            @php /** @var \Illuminate\Pagination\LengthAwarePaginator $roads */ @endphp
             @forelse($roads as $index => $road)
             <tr>
                 <td style="font-weight:600;">{{ $roads->firstItem() + $index }}</td>

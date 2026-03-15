@@ -7,36 +7,36 @@
 
 /* ── CSS Variables ── */
 :root {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --primary-dark: #4f46e5;
-  --primary-glow: rgba(99, 102, 241, 0.25);
-  --accent: #06b6d4;
-  --accent-light: #22d3ee;
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --primary-glow: rgba(37, 99, 235, 0.15);
+  --accent: #0ea5e9;
+  --accent-light: #38bdf8;
 
-  --bg-dark: #0f1117;
-  --bg-section: #13152a;
-  --bg-card: #1a1d2e;
-  --bg-card-hover: #222640;
-  --bg-input: #1e2139;
+  --bg-light: #f8fafc;
+  --bg-section: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #ffffff;
 
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
   --text-muted: #64748b;
   --text-white: #ffffff;
 
-  --border: #2d3154;
-  --border-light: #3b4070;
+  --border: #e2e8f0;
+  --border-light: #f1f5f9;
 
-  --kondisi-baik: #22c55e;
-  --kondisi-sedang: #eab308;
-  --kondisi-rusak-ringan: #f97316;
-  --kondisi-rusak-berat: #ef4444;
+  --kondisi-baik: #16a34a;
+  --kondisi-sedang: #ca8a04;
+  --kondisi-rusak-ringan: #ea580c;
+  --kondisi-rusak-berat: #dc2626;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
-  --shadow-glow: 0 0 24px var(--primary-glow);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 20px var(--primary-glow);
 
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -54,8 +54,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background: var(--bg-dark);
-  color: #281e1e;
+  background: var(--bg-light);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -74,70 +74,12 @@ img { max-width: 100%; display: block; }
 /* ============================================
    Navbar
    ============================================ */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 0 24px;
-  height: 68px;
-  display: flex;
-  align-items: center;
-  background: rgba(15, 17, 23, 0.7);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;
-}
-
+/* Removed conflicting .navbar styles inherited from previous template */
 .navbar.scrolled {
-  background: rgba(15, 17, 23, 0.95);
-  border-bottom-color: var(--border);
   box-shadow: var(--shadow-md);
 }
 
-.nav-container {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand-icon {
-  width: 38px; height: 38px;
-  background: linear-gradient(135deg, var(--primary), #8b5cf6);
-  border-radius: var(--radius-sm);
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 16px;
-}
-
-.brand-text { display: flex; flex-direction: column; }
-.brand-name { font-size: 1rem; font-weight: 700; color: var(--text-white); line-height: 1.2; }
-.brand-sub { font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-
-.nav-links {
-  display: flex; gap: 4px;
-}
-
-.nav-link {
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-secondary);
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-}
-
-.nav-link:hover { color: var(--text-white); background: rgba(255,255,255,0.05); }
-.nav-link.active { color: var(--primary-light); background: rgba(99,102,241,0.1); }
-
-.nav-actions { display: flex; align-items: center; gap: 12px; }
+/* Removed custom link styles that mess with Bootstrap 5.3 navbar */
 
 .btn-admin {
   display: inline-flex; align-items: center; gap: 8px;
@@ -332,7 +274,7 @@ img { max-width: 100%; display: block; }
 
 .section-header h2 {
   font-size: 2rem; font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-primary);
   margin-bottom: 12px;
 }
 
@@ -402,7 +344,7 @@ img { max-width: 100%; display: block; }
 
 .stat-value {
   font-size: 1.5rem; font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-primary);
   line-height: 1.2;
 }
 
@@ -716,12 +658,12 @@ img { max-width: 100%; display: block; }
 
 .panel-close-btn:hover {
   background: var(--bg-card-hover);
-  color: var(--text-white);
+  color: var(--text-primary);
 }
 
 .panel-content h3 {
   font-size: 1.25rem; font-weight: 700;
-  color: var(--text-white);
+  color: var(--text-primary);
   margin-bottom: 12px;
   padding-right: 40px;
 }
@@ -760,7 +702,7 @@ img { max-width: 100%; display: block; }
 
 .detail-val {
   font-size: 0.9375rem; font-weight: 600;
-  color: var(--text-white);
+  color: var(--text-primary);
 }
 
 /* ============================================
@@ -818,21 +760,20 @@ img { max-width: 100%; display: block; }
 }
 
 .pub-table thead th {
-  padding: 14px 16px;
-  background: rgba(99,102,241,0.06);
+  padding: 16px 20px;
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
   font-size: 0.75rem; font-weight: 600;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  text-align: left;
-  border-bottom: 1px solid var(--border);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
 }
 
 .pub-table tbody td {
-  padding: 13px 16px;
-  font-size: 0.875rem;
-  color: var(--text-primary);
-  border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  font-size: 0.875rem; color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
 }
 
 .pub-table tbody tr:last-child td { border-bottom: none; }
@@ -840,7 +781,9 @@ img { max-width: 100%; display: block; }
 .pub-table tbody tr { transition: background var(--transition-fast); }
 .pub-table tbody tr:hover { background: rgba(99,102,241,0.04); }
 
-.pub-table .name-col { color: var(--text-white); font-weight: 600; }
+.pub-table .name-col { color: var(--text-primary); font-weight: 600; }
+
+.pub-table .nav-link:hover { color: var(--primary); background: rgba(0,0,0,0.05); }
 
 .kondisi-badge-sm {
   display: inline-flex;
@@ -911,6 +854,7 @@ img { max-width: 100%; display: block; }
 .footer-logo i {
   background: linear-gradient(135deg, var(--primary), #8b5cf6);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.25rem;
 }
@@ -1031,6 +975,38 @@ img { max-width: 100%; display: block; }
       border-radius: 8px;
       z-index: 1;
     }
+
+.header-area {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  transition: all 0.3s ease !important;
+  height: 80px !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.header-area.background-header {
+  background: rgba(255, 255, 255, 1) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.header-area .main-nav .logo {
+  line-height: 80px !important;
+  color: var(--primary) !important;
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
 
     .map-filter-bar {
       display: flex;
@@ -1503,80 +1479,50 @@ img { max-width: 100%; display: block; }
   position: relative !important;
 }
 
-.header-area .nav li.custom-dropdown > .dropdown-menu > li > a,
-.header-area .nav li.custom-dropdown-level-2 > .dropdown-menu > li > a {
-  padding: 8px 16px !important; /* Padding tulisan diperkecil */
-  display: flex !important;
-  align-items: center !important;
-  color: #e2e8f0 !important; /* var(--text-primary) */
-  font-size: 0.8rem !important; /* Font diperkecil */
-  font-weight: 500 !important;
-  transition: all 0.2s ease !important;
-  height: auto !important;
-  line-height: normal !important;
-  width: 100% !important;
-  text-transform: none !important;
-  border: none !important;
-  background: transparent !important;
+/* Navigation active state refinement */
+.header-area .main-nav .nav li a {
+  color: var(--text-secondary) !important;
 }
 
-.header-area .nav li.custom-dropdown > .dropdown-menu > li > a:hover,
-.header-area .nav li.custom-dropdown-level-2 > .dropdown-menu > li > a:hover {
-  background: rgba(249, 115, 22, 0.15) !important;
-  color: #f97316 !important; /* Orange accent */
-  padding-left: 26px !important;
+.header-area .main-nav .nav li a.active {
+  color: var(--primary) !important;
+  opacity: 1 !important;
 }
 
-/* Hide breezed default caret on level 2 so we only use ours if needed, OR just remove the custom ones */
-/* We will just rely on the template's carets and remove our custom ones */
-.header-area .nav li.custom-dropdown-level-2 > a {
-  position: relative !important;
+.header-area .main-nav .nav li a:hover {
+  color: var(--primary) !important;
+  opacity: 1 !important;
 }
 
-/* Ensure no stray carets conflict */
-.header-area .nav li.submenu > a::after {
-  display: block; /* The default template caret */
+/* Home Section Heading Refinement */
+.section-heading h6 {
+  color: var(--primary-light) !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
 }
 
-/* Login Admin Custom Button Override */
-.header-area .nav li.login-admin-btn {
-  margin-left: 10px;
+.section-heading h2 {
+  color: var(--text-primary) !important;
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
 }
 
-.nav .login-admin-btn .btn-login-custom {
-  display: inline-flex !important;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 24px !important;
-  background: linear-gradient(135deg, #f97316, #ea580c) !important;
+/* Section Spacing */
+section.section {
+  padding-top: 100px !important;
+  padding-bottom: 100px !important;
+}
+
+.main-banner {
+  padding-top: 0 !important;
+}
+
+/* Submenu refinement */
+.header-area .main-nav .nav li.submenu:after {
+  top: 32px !important;
+}
+
+.header-area.background-header .main-nav .nav li.submenu:after {
   color: #fff !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  border-radius: 30px !important;
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3) !important;
-  transition: all 0.3s ease !important;
-  border: none !important;
-}
-
-.nav .login-admin-btn .btn-login-custom:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45) !important;
-  background: linear-gradient(135deg, #ea580c, #c2410c) !important;
-  color: #fff !important;
-}
-
-.nav .login-admin-btn .btn-login-custom i {
-  font-size: 0.85rem;
-}
-
-.nav .login-admin-btn .btn-login-custom:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.45) !important;
-  background: linear-gradient(135deg, #ea580c, #c2410c) !important;
-  color: #fff !important;
-}
-
-.nav .login-admin-btn .btn-login-custom i {
-  font-size: 0.85rem;
 }

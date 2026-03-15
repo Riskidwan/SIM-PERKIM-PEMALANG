@@ -1,6 +1,13 @@
 @extends('admin.layouts.app')
 @section('title', 'Dashboard')
 
+@php
+/** @var int $totalJalan */
+/** @var float $totalPanjang */
+/** @var array $kondisiCount */
+/** @var array $perkerasanCount */
+@endphp
+
 @section('content')
 <div class="dashboard-grid">
     <div class="stat-card">

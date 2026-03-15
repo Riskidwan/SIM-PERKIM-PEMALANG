@@ -1,44 +1,48 @@
 @extends('admin.layouts.app')
 @section('title', 'Detail Permohonan PSU')
 
+@php /** @var \App\Models\PsuSubmission $submission */ @endphp
+
 @section('content')
-<div class="row" style="display: flex; gap: 24px;">
+<div class="row" style="display: flex; gap: 32px; align-items: start;">
     <!-- LEFT: Details -->
     <div style="flex: 1;">
-        <div class="card" style="background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 16px;">
+        <div class="table-container" style="padding: 32px; margin-bottom: 0;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; border-bottom: 2px solid #f1f5f9; padding-bottom: 24px;">
                 <div>
-                    <h3 style="margin: 0; font-size: 1.25rem;">{{ $submission->no_registrasi }}</h3>
-                    <p style="margin: 4px 0 0; color: #64748b; font-size: 0.875rem;">Masuk pada: {{ $submission->created_at->format('d M Y, H:i') }}</p>
+                    <h3 style="margin: 0; font-size: 1.5rem; color: var(--text-primary);">{{ $submission->no_registrasi }}</h3>
+                    <p style="margin: 6px 0 0; color: var(--text-muted); font-size: 0.875rem;">
+                        <i class="far fa-calendar-alt" style="margin-right: 6px;"></i> Pengajuan: {{ $submission->created_at->format('d M Y, H:i') }}
+                    </p>
                 </div>
                 <div>
                     @if($submission->status === 'verifikasi dokumen')
-                        <span style="background-color: #fef0c7; color: #915d0a; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600;">{{ $submission->status }}</span>
+                        <span class="badge" style="background-color: #fef0c7; color: #915d0a; font-size: 0.875rem; padding: 6px 16px;">{{ $submission->status }}</span>
                     @elseif($submission->status === 'perbaikan dokumen')
-                        <span style="background-color: #fee4e2; color: #b42318; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600;">{{ $submission->status }}</span>
+                        <span class="badge" style="background-color: #fee4e2; color: #b42318; font-size: 0.875rem; padding: 6px 16px;">{{ $submission->status }}</span>
                     @else
-                        <span style="background-color: #ecfdf3; color: #027a48; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600;">{{ $submission->status }}</span>
+                        <span class="badge" style="background-color: #ecfdf3; color: #027a48; font-size: 0.875rem; padding: 6px 16px;">{{ $submission->status }}</span>
                     @endif
                 </div>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-bottom: 40px;">
                 <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px;">Nama Pemohon</label>
-                    <p style="margin: 0; font-weight: 500;">{{ $submission->nama_pemohon }}</p>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Nama Pemohon</label>
+                    <p style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 500;">{{ $submission->nama_pemohon }}</p>
                 </div>
                 <div>
-                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px;">Jenis Permohonan</label>
-                    <p style="margin: 0; font-weight: 500;">{{ $submission->jenis_permohonan }}</p>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Jenis Permohonan</label>
+                    <p style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 500;">{{ $submission->jenis_permohonan }}</p>
                 </div>
                 <div style="grid-column: span 2;">
-                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 4px;">Lokasi Pembangunan</label>
-                    <p style="margin: 0; font-weight: 500;">{{ $submission->lokasi_pembangunan }}</p>
+                    <label style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;">Lokasi Pembangunan</label>
+                    <p style="margin: 0; font-size: 1rem; color: var(--text-primary); font-weight: 500;">{{ $submission->lokasi_pembangunan }}</p>
                 </div>
             </div>
 
-            <h4 style="font-size: 1rem; margin: 0 0 16px; border-top: 1px solid #f1f5f9; padding-top: 16px;">Dokumen Terlampir</h4>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <h4 style="font-size: 1.125rem; color: var(--text-primary); margin: 0 0 20px; font-weight: 700;">Dokumen Terlampir</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                 @php
                     $docs = [
                         'fc_ktp' => 'FC KTP',
@@ -50,10 +54,10 @@
                     ];
                 @endphp
                 @foreach($docs as $key => $label)
-                    <a href="{{ asset('storage/' . $submission->$key) }}" target="_blank" style="display: flex; align-items: center; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; text-decoration: none; color: #334155; transition: background 0.2s;">
-                        <i class="fas fa-file-pdf" style="margin-right: 12px; color: #ef4444; font-size: 1.25rem;"></i>
-                        <span style="font-size: 0.875rem; font-weight: 500;">{{ $label }}</span>
-                        <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 0.75rem; color: #94a3b8;"></i>
+                    <a href="{{ asset('storage/' . $submission->$key) }}" target="_blank" class="nav-item" style="border: 1px solid var(--border); background: #f8fafc; color: var(--text-primary); gap: 16px; padding: 16px;">
+                        <i class="fas fa-file-pdf" style="color: #ef4444; font-size: 1.5rem;"></i>
+                        <span style="font-size: 0.875rem; font-weight: 600;">{{ $label }}</span>
+                        <i class="fas fa-external-link-alt" style="margin-left: auto; font-size: 0.75rem; color: var(--text-muted);"></i>
                     </a>
                 @endforeach
             </div>

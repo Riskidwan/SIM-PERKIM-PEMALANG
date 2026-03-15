@@ -48,8 +48,12 @@
         margin-bottom: 8px;
         display: block;
     }
+    body { padding-top: 80px; background: #f4f7fb; }
 </style>
+<link rel="stylesheet" href="{{ asset('css/public.css') }}?v=4">
 @endpush
+
+@php /** @var \App\Models\PsuSubmission $submission */ @endphp
 
 @section('content')
 <!-- ***** Spacer for Header ***** -->
@@ -140,3 +144,4 @@
     </div>
 </section>
 @endsection
+

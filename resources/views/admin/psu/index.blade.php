@@ -19,6 +19,7 @@
             </tr>
         </thead>
         <tbody>
+            @php /** @var \Illuminate\Database\Eloquent\Collection $submissions */ @endphp
             @forelse ($submissions as $index => $sub)
                 <tr>
                     <td>{{ $index + 1 }}</td>
@@ -27,11 +28,11 @@
                     <td>{{ $sub->created_at->format('d M Y') }}</td>
                     <td>
                         @if($sub->status === 'verifikasi dokumen')
-                            <span class="badge" style="background-color: #fef0c7; color: #915d0a; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">{{ $sub->status }}</span>
+                            <span class="badge" style="background-color: #fef0c7; color: #915d0a;">{{ $sub->status }}</span>
                         @elseif($sub->status === 'perbaikan dokumen')
-                            <span class="badge" style="background-color: #fee4e2; color: #b42318; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">{{ $sub->status }}</span>
+                            <span class="badge" style="background-color: #fee4e2; color: #b42318;">{{ $sub->status }}</span>
                         @else
-                            <span class="badge" style="background-color: #ecfdf3; color: #027a48; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 500;">{{ $sub->status }}</span>
+                            <span class="badge" style="background-color: #ecfdf3; color: #027a48;">{{ $sub->status }}</span>
                         @endif
                     </td>
                     <td style="text-align: center;">

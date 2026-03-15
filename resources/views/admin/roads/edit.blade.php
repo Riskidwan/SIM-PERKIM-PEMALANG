@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 @section('title', 'Edit Data Jalan')
 
+@php /** @var \App\Models\Road $road */ @endphp
+
 @section('content')
 <div class="modal" style="width: 100%; max-width: 1200px; margin: 0 auto; box-shadow: none;">
     <div class="modal-body" style="padding: 0;">

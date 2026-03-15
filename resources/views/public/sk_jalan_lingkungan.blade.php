@@ -42,15 +42,14 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
     }
+    body { padding-top: 80px; background: #f4f7fb; }
   </style>
+  <link rel="stylesheet" href="{{ asset('css/public.css') }}?v=4">
 @endpush
 
 @section('content')
-  <!-- ***** Spacer for Header ***** -->
-  <div style="height: 100px; background: #f7f7f7;"></div>
-
-  <!-- ***** SK Jalan Lingkungan Section Start ***** -->
-  <section class="section" id="sk-jalan-lingkungan" style="background: #f7f7f7; padding-top: 30px; min-height: 70vh;">
+  <!-- SK Jalan Lingkungan Section Start -->
+  <section class="section layout_padding" id="sk-jalan-lingkungan" style="background: #f7f7f7; min-height: 70vh;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -77,6 +76,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @php /** @var \Illuminate\Database\Eloquent\Collection $sk_items */ @endphp
                   @forelse($sk_items as $sk)
                     <tr>
                       <td style="text-align: center; font-size: 18px; font-weight: 700; color: #333;">
@@ -111,3 +111,4 @@
   <!-- ***** SK Jalan Lingkungan Section End ***** -->
 
 @endsection
+

@@ -82,11 +82,27 @@
             <header class="main-header">
                 <div class="header-left">
                     <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
-                    <h1 class="page-title">@yield('title', 'Dashboard')</h1>
+                    <div style="display: flex; flex-direction: column;">
+                        <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">{{ now()->translatedFormat('l, d F Y') }}</span>
+                        <h1 class="page-title" style="margin-top: -2px;">@yield('title', 'Dashboard')</h1>
+                    </div>
                 </div>
                 <div class="header-right">
+                    <!-- Search mockup -->
+                    <div class="header-search" style="margin-right: 15px;">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Cari data...">
+                    </div>
+
+                    <!-- User Dropdown (Simplified mockup) -->
+                    <div style="display: flex; align-items: center; gap: 12px; padding: 6px 12px; background: #f8fafc; border-radius: 999px; border: 1px solid var(--border-light); cursor: pointer;">
+                        <div class="user-avatar" style="width: 32px; height: 32px; margin: 0; font-size: 0.75rem; background: var(--brand-500); color: white;">A</div>
+                        <span style="font-size: 0.875rem; font-weight: 600; color: var(--text-primary);">Administrator</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.75rem; color: var(--text-muted);"></i>
+                    </div>
+
                     <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark Mode">
+                    <button id="theme-toggle" class="theme-toggle-btn" title="Toggle Dark Mode" style="margin-left: 10px;">
                         <i class="fas fa-moon dark-hidden"></i>
                         <i class="fas fa-sun light-hidden" style="display: none;"></i>
                     </button>
@@ -94,11 +110,21 @@
             </header>
 
             <!-- Page Content -->
-            <div class="page-content" style="padding: 24px;">
+            <div class="page-content">
+                <!-- Breadcrumbs -->
+                <nav class="breadcrumbs">
+                    <a href="{{ url('admin/dashboard') }}">Admin</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>@yield('title', 'Dashboard')</span>
+                </nav>
+
                 @if(session('success'))
-                    <div style="padding: 1rem; margin-bottom: 1rem; background-color: #ecfdf3; color: #027a48; border-radius: 8px; border: 1px solid #a6f4c5;">
-                        <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
-                        {{ session('success') }}
+                    <div style="padding: 1rem; margin-bottom: 1.5rem; background-color: #ecfdf3; color: #027a48; border-radius: 12px; border: 1px solid #a6f4c5; display: flex; align-items: center; gap: 12px;">
+                        <i class="fas fa-check-circle" style="font-size: 1.25rem;"></i>
+                        <div>
+                            <div style="font-weight: 700; font-size: 0.95rem;">Berhasil</div>
+                            <div style="font-size: 0.875rem; opacity: 0.9;">{{ session('success') }}</div>
+                        </div>
                     </div>
                 @endif
                 

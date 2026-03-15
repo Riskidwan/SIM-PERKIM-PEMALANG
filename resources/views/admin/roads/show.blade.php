@@ -1,6 +1,11 @@
 @extends('admin.layouts.app')
 @section('title', 'Detail Data Jalan - ' . $road->nama)
 
+@php
+/** @var \App\Models\Road $road */
+$roadCoords = is_array($road->coordinates) ? $road->coordinates : [];
+@endphp
+
 @section('content')
 <div class="modal" style="width: 100%; max-width: 1200px; margin: 0 auto; box-shadow: none;">
     <div class="modal-body" style="padding: 0;">
@@ -75,9 +80,7 @@
     </div>
 </div>
 
-@php
-    $roadCoords = is_array($road->coordinates) ? $road->coordinates : [];
-@endphp
+
 @endsection
 
 @push('scripts')

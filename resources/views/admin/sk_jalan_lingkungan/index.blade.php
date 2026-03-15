@@ -24,6 +24,7 @@
             </tr>
         </thead>
         <tbody>
+            @php /** @var \Illuminate\Database\Eloquent\Collection $sk_items */ @endphp
             @forelse ($sk_items as $index => $sk)
                 <tr>
                     <td style="font-weight:600;">{{ $index + 1 }}</td>

@@ -2,18 +2,12 @@
 @section('title', 'Template Data Teknis')
 
 @section('content')
-<div class="road-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-    <h2 style="font-size: 1.5rem; margin: 0; color: #333;">Manajemen Template Data Teknis</h2>
-    <a href="{{ route('admin.psu-templates.create') }}" class="btn btn-primary" style="text-decoration:none;">
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+    <h2 style="font-size: 1.5rem; margin: 0; color: var(--text-primary); font-weight: 700;">Manajemen Template Data Teknis</h2>
+    <a href="{{ route('admin.psu-templates.create') }}" class="btn btn-primary" style="padding: 10px 20px; border-radius: 999px;">
         <i class="fas fa-plus"></i> Tambah Template
     </a>
 </div>
-
-@if(session('success'))
-    <div class="alert alert-success" style="padding: 15px; background-color: #ecfdf3; color: #027a48; border: 1px solid #d1fadf; border-radius: 8px; margin-bottom: 20px;">
-        {{ session('success') }}
-    </div>
-@endif
 
 <div class="table-container">
     <table class="data-table">
@@ -27,6 +21,7 @@
             </tr>
         </thead>
         <tbody>
+            @php /** @var \Illuminate\Database\Eloquent\Collection $templates */ @endphp
             @forelse ($templates as $index => $tpl)
                 <tr>
                     <td>{{ $index + 1 }}</td>

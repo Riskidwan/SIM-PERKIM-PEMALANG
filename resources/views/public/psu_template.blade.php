@@ -36,14 +36,13 @@
         background: #1e40af;
         color: white;
     }
+    body { padding-top: 80px; background: #f4f7fb; }
 </style>
+<link rel="stylesheet" href="{{ asset('css/public.css') }}?v=4">
 @endpush
 
 @section('content')
-<!-- ***** Spacer for Header ***** -->
-<div style="height: 100px; background: #f7f7f7;"></div>
-
-<section class="section" id="templates" style="background: #f7f7f7; padding-top: 30px; min-height: 80vh;">
+<section class="section layout_padding" id="templates" style="background: #f7f7f7; min-height: 80vh;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -57,6 +56,7 @@
         </div>
 
         <div class="row" style="margin-top: 40px;">
+            @php /** @var \Illuminate\Database\Eloquent\Collection $templates */ @endphp
             @forelse($templates as $tpl)
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="template-card">
@@ -90,3 +90,4 @@
     </div>
 </section>
 @endsection
+

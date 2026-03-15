@@ -1,20 +1,24 @@
 @extends('public.layouts.app')
 @section('title', 'Peta (WebGIS)')
 
-@section('content')
-  <!-- ***** Spacer for Header ***** -->
-  <div style="height: 80px; background: #fff;"></div>
+@push('styles')
+   <link rel="stylesheet" href="{{ asset('css/public.css') }}?v=4">
+  <style>
+    body { padding-top: 80px; }
+    #peta { padding-top: 30px !important; }
+  </style>
+@endpush
 
+@section('content')
   <!-- ***** Peta Interaktif Section Start ***** -->
-  <section class="section" id="peta" style="background: #f7f7f7; padding-top: 50px;">
+  <section class="section" id="peta" style="background: #f7f7f7; padding-top: 50px; padding-bottom: 50px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div class="section-heading text-center" style="margin-bottom: 30px;">
-            <!-- <h2>Peta Interaktif (WebGIS)</h2> -->
-            <h2>Peta Interaktif (WebGIS)</h2>
+          <div class="text-center" style="margin-bottom: 40px;">
+            <h2 style="font-weight: 700; color: #1e3c72; font-size: 2.5rem;">Peta Interaktif (WebGIS)</h2>
             <p style="margin-top: 15px; font-size: 15px; color: #666; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-              Peta WebGIS ini merupakan visualisasi geografis khusus untuk memetakan jaringan jalan lingkungan di Kabupaten Pemalang. Peta ini dapat digunakan untuk melihat, memantau, dan menganalisis secara langsung informasi teknis tiap ruas jalan, kondisi tingkat kerusakan jalan secara rinci dan <i>real-time</i> berdasarkan pemetaan titik koordinat lokasi di lapangan.
+              Peta WebGIS ini merupakan visualisasi geografis khusus untuk memetakan jaringan jalan lingkungan di Kabupaten Pemalang. Peta ini dapat digunakan untuk melihat, memantau, dan menganalisis secara langsung informasi teknis tiap ruas jalan.
             </p>
           </div>
         </div>
@@ -32,8 +36,8 @@
             </div>
           </div>
           <!-- Map -->
-          <div class="map-container-wrap">
-            <div id="pub-map"></div>
+          <div class="map-container-wrap" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.1);">
+            <div id="pub-map" style="height: 600px; width: 100%;"></div>
             <div class="map-legend">
               <h4><i class="fas fa-palette"></i> Keterangan</h4>
               <div class="legend-row"><span class="dot" style="background:#22c55e"></span> Baik</div>
@@ -46,9 +50,8 @@
       </div>
     </div>
   </section>
-  <!-- ***** Peta Section End ***** -->
 
-  <!-- ***** Detail Modal ***** -->
+  <!-- Detail Modal -->
   <div class="detail-modal-overlay" id="pub-detail-overlay">
     <div class="detail-modal" id="pub-detail-panel">
       <button class="close-btn" onclick="pubCloseDetail()">&times;</button>
@@ -84,52 +87,6 @@
       </div>
     </div>
   </div>
-
-  <!-- ***** Footer Start ***** -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-xs-12">
-          <div class="copyright-text">
-            <p>Copyright &copy; 2026 SIG Jalan Kabupaten Pemalang.
-              <br>Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a>
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-6 col-xs-12">
-          <div class="right-text-content">
-            <ul class="social-icons">
-              <li><p>Follow Us</p></li>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- jQuery -->
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/jquery-2.1.0.min.js') }}"></script>
-
-  <!-- Bootstrap -->
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/popper.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/bootstrap.min.js') }}"></script>
-
-  <!-- Plugins -->
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/owl-carousel.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/scrollreveal.min.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/waypoints.min.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/jquery.counterup.min.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/imgfix.min.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/slick.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/lightbox.js') }}"></script>
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/isotope.js') }}"></script>
-
-  <!-- Global Init -->
-  <script src="{{ asset('Template_Halaman/templatemo_543_breezed/assets/js/custom.js') }}"></script>
 @endsection
 
 @push('scripts')

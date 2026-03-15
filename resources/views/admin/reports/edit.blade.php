@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 @section('title', 'Edit Laporan Tahunan')
 
+@php /** @var \App\Models\RoadConditionReport $report */ @endphp
+
 @section('content')
 <div class="modal" style="width: 100%; max-width: 800px; margin: 0 auto; box-shadow: none;">
     <div class="modal-body" style="padding: 0;">
